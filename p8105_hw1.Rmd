@@ -28,8 +28,10 @@ ploblem1_df = tibble(
   ran_samp = rnorm(10),
   gr_than_0 = ran_samp > 0,
   vec_char = c("perfect", "H", "o", "m", "e", "w", "o", "r", "k", "lol"),
-  vec_factor=factor(c("iron", "gold", "silver", "silver", "silver", "gold", "iron", "silver", "gold", "iron"))
+  vec_factor = factor(c("iron", "gold", "silver", "silver", "silver", "gold", "iron", "silver", "gold", "iron"))
 )
+
+ploblem1_df
 
 
 ```
@@ -37,6 +39,12 @@ ploblem1_df = tibble(
 ##problem1(2)
 
 ```{r}
+
+
+ploblem1_df %>% pull(ran_samp)
+
+
+
 
 
 
