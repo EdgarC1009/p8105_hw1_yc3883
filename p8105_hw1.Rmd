@@ -5,7 +5,7 @@ date: 2021-09-25
 output: github_document
 ---
 
-```{r, message=FALSE}
+```{r, message = FALSE}
 library(tidyverse)
 ```
 
@@ -19,7 +19,7 @@ Create a data frame comprised of:
  -a character vector of length 10. 
  -a factor vector of length 10, with 3 different factor “levels”. 
  
-```{r}
+```{r, message = FALSE}
 
 set.seed(3883)
 
@@ -38,7 +38,7 @@ problem1_df
 Try to take the mean of each variable in your dataframe. What works and what doesn’t?
 Mean() works for ran_samp and gr_than_0 but does not work for vec_char and vec_factor. Therefore, We can use mean() for numeric and logical variables but character and factor ones.
 
-```{r}
+```{r, message = FALSE}
 
 mean(pull(problem1_df, var = ran_samp))
 mean(pull(problem1_df, var = gr_than_0))
@@ -49,7 +49,7 @@ mean(pull(problem1_df, var = gr_than_0))
 In some cases, you can explicitly convert variables from one type to another. Write a code chunk that applies the as.numeric function to the logical, character, and factor variables (please show this chunk but not the output). What happens, and why? Does this help explain what happens when you try to take the mean?
 We can convert logical and factor variables to numeric variables. But we cannot convert character variables to numeric ones since data of the character variables is text. Text information cannot be directly convert to numeric data. For logical variables, as.numeric will turn "True" to "1", and "FALSE" to "0". For factor variables, as.numeric will return the underlying numeric representation for each factor. 
 
-```{r}
+```{r, eval = FALSE}
 as.numeric(pull(problem1_df, var = gr_than_0))
 as.numeric(pull(problem1_df, var = vec_char))
 as.numeric(pull(problem1_df, var = vec_factor))
@@ -58,7 +58,7 @@ as.numeric(pull(problem1_df, var = vec_factor))
 # problem 2
 Load the penguins dataset
 
-```{r}
+```{r, message = FALSE}
 data("penguins", package = "palmerpenguins")
 ```
 
@@ -74,7 +74,7 @@ Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points 
 
 Export your first scatterplot to your project directory using ggsave.
 
-```{r}
+```{r, message = FALSE, warning = FALSE}
 
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 
