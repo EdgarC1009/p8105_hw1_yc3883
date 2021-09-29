@@ -45,7 +45,6 @@ Try to take the mean of each variable in your dataframe. What works and what doe
 mean(problem1_df[["ran_samp"]])
 mean(problem1_df[["gr_than_0"]])
 
-
 ```
 
 ## problem 1 (3)
@@ -66,10 +65,24 @@ data("penguins", package = "palmerpenguins")
 head(penguins, n = 5)
 
 ```
-## prblem 2(1)
+
+## problem 2 (1)
 Description of the penguins dataset:
 All the variables in this dataset are `r names(penguins)`.
 The number of rows in dataset is `r nrow(penguins)`.
 The number of columns in dataset is `r ncol(penguins)`.
 The mean flipper length is `r mean(penguins[["flipper_length_mm"]])`
+
+## problem 2 (2)
+Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable (adding color = ... inside of aes in your ggplot code should help).
+
+Export your first scatterplot to your project directory using ggsave.
+
+```{r}
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+
+ggsave("penguins.pdf")
+
+```
 
