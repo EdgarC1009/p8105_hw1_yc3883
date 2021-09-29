@@ -59,20 +59,15 @@ In some cases, you can explicitly convert variables from one type to another. Wr
 Load the penguins dataset
 
 ```{r}
-
-
 data("penguins", package = "palmerpenguins")
-
-head(penguins, n = 5)
-
 ```
 
 ## problem 2 (1)
 Description of the penguins dataset:
-All the variables in this dataset are `r names(penguins)`.
+The variables in this dataset are `r names(penguins)`.
 The number of rows in dataset is `r nrow(penguins)`.
 The number of columns in dataset is `r ncol(penguins)`.
-The mean flipper length is `r mean(penguins[["flipper_length_mm"]])`
+The mean flipper length is `r mean(pull(penguins, var = flipper_length_mm), na.rm = TRUE)`
 
 ## problem 2 (2)
 Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable (adding color = ... inside of aes in your ggplot code should help).
